@@ -1,0 +1,43 @@
+#FROM debian:latest
+FROM golang:1.21
+
+ARG APP_NAME
+
+LABEL org.opencontainers.image.title="${APP_NAME}"
+
+# Set destination for COPY
+WORKDIR /app
+
+# Download Go modules
+COPY go.mod go.sum ./
+RUN go mod download
+
+# Copy the project files to the container
+COPY . .
+
+# Build the Go executable
+RUN go build -o /energy-usage-simulator .
+
+# Copy the source code. Note the slash at the end, as explained in
+# https://docs.docker.com/reference/dockerfile/#copy
+COPY energy-usage-simulator ./energy-usage-simulator
+COPY hello-world ./hello-world
+COPY main ./main
+COPY gj-sim.env ./
+
+# TODO debug issues...
+# https://www.google.com/search?q=rancher+desktop+mac+intel+2019&oq=rancher+desktop+mac+intel+2019&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIHCAEQIRigATIHCAIQIRigATIHCAMQIRigATIHCAQQIRigATIHCAUQIRigAdIBCTE2MjIzajBqN6gCALACAA&sourceid=chrome&ie=UTF-8
+# reduce the problam down to a hello world example, with go.mod file... etc... .
+# https://bobcares.com/blog/docker-exec-format-error/
+
+# Optional:
+# To bind to a TCP port, runtime parameters must be supplied to the docker command.
+# But we can document in the Dockerfile what ports
+# the application is going to listen on by default.
+# https://docs.docker.com/reference/dockerfile/#expose
+EXPOSE 8000
+
+# Run
+#ENTRYPOINT ["./energy-usage-simulator"]
+# for debugging
+CMD [ "tail", "-f", "/dev/null" ]
