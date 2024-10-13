@@ -1,4 +1,4 @@
-module github.com/globaljoules/energy-usage-simulator
+module github.com/healthfusiongenai/health-risk-api
 
 go 1.21
 

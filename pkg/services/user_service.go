@@ -9,9 +9,9 @@ import (
 	//	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 
-	//	"github.com/globaljoules/energy-usage-simulator/pkg/config"
-	"github.com/globaljoules/energy-usage-simulator/pkg/initializer"
-	// "github.com/globaljoules/energy-usage-simulator/pkg/utils"
+	//	"github.com/healthfusiongenai/health-risk-api/pkg/config"
+	"github.com/healthfusiongenai/health-risk-api/pkg/initializer"
+	// "github.com/healthfusiongenai/health-risk-api/pkg/utils"
 )
 
 type UserService struct {

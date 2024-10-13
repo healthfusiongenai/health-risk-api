@@ -1,6 +1,6 @@
 # Summary
 
-This app contains the gj simulator that is used to simualte a group of users, and any other entity, with the globaljoules platform.
+This app contains a POC health risk api is used to register and login users with the healthfusiongenai platform.
 
 ## Overview
 
@@ -14,7 +14,7 @@ The simulator can:
 Postgres can be run within Docker, I am using Rancher to do so.
 
 - helm install gj-postgresql bitnami/postgresql
-- Setup port forwarding in rancher dashboard on port 5432 (matches gj-sim.env)
+- Setup port forwarding in rancher dashboard on port 5432 (matches hlth-api.env)
 -- click on port forwarding menu,
 -- in Rancher udpate local port to 5432
 - Get the password from k8s secret
@@ -39,7 +39,7 @@ Postgres can be run within Docker, I am using Rancher to do so.
 You can check the logs of the container by running
 
 ```shell
-➜  energy-usage-simulator git:(main) ✗ docker container logs energy-usage-simulator
+➜  health-risk-api git:(main) ✗ docker container logs health-risk-api
 2024/10/10 03:37:17 Failed to connect to the Database
 ```
 
@@ -54,8 +54,8 @@ You will need to run the simulator with the make command, to get the IP of the p
 -- ```make exec```
 
 ```shell
-➜  energy-usage-simulator git:(main) ✗ make exec
-docker exec -it energy-usage-simulator /bin/sh
+➜  health-risk-api git:(main) ✗ make exec
+docker exec -it health-risk-api /bin/sh
 ~ # netstat 
 Active Internet connections (w/o servers)
 Proto Recv-Q Send-Q Local Address           Foreign Address         State       
@@ -76,20 +76,20 @@ Proto RefCnt Flags       Type       State         I-Node Path
 You need to check the pods, and describe them
 
 ```shell
-➜  energy-usage-simulator git:(main) ✗ k get pods
+➜  health-risk-api git:(main) ✗ k get pods
 NAME                     READY   STATUS    RESTARTS          AGE
 gj-postgresql-0          1/1     Running   16 (34h ago)      246d
 gj-mariadb-0             1/1     Running   23 (34h ago)      228d
 spark-cluster-master-0   1/1     Running   17 (34h ago)      318d
 spark-cluster-worker-1   1/1     Running   181 (6m41s ago)   318d
 spark-cluster-worker-0   1/1     Running   187 (4m21s ago)   318d
-➜  energy-usage-simulator git:(main) ✗ k describe pod gj-postgresql-0
+➜  health-risk-api git:(main) ✗ k describe pod gj-postgresql-0
 ```
 
 Then describe the pod
 
 ```shell
-➜  energy-usage-simulator git:(main) ✗ k describe pod gj-postgresql-0
+➜  health-risk-api git:(main) ✗ k describe pod gj-postgresql-0
 Name:         gj-postgresql-0
 Namespace:    default
 Priority:     0
@@ -106,10 +106,10 @@ IPs:
 IP:           10.42.0.31
 ```
 
-Use that IP to connet to database in the gj-sim.env file
+Use that IP to connet to database in the hlth-api.env file
 
 ```shell
-➜  energy-usage-simulator git:(main) ✗ cat gj-sim.env
+➜  health-risk-api git:(main) ✗ cat hlth-api.env
 POSTGRES_HOST=10.42.0.31
 POSTGRES_PORT=5432
 POSTGRES_USER=postgres

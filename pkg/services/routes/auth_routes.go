@@ -3,8 +3,8 @@ package routes
 import (
 	"github.com/gin-gonic/gin"
 
-	"github.com/globaljoules/energy-usage-simulator/pkg/services/controllers"
-	"github.com/globaljoules/energy-usage-simulator/pkg/services/middleware"
+	"github.com/healthfusiongenai/health-risk-api/pkg/services/controllers"
+	"github.com/healthfusiongenai/health-risk-api/pkg/services/middleware"
 )
 
 type AuthRouter struct {

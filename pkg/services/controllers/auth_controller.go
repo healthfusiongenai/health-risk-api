@@ -9,11 +9,10 @@ import (
 	"gorm.io/gorm"
 
 	"github.com/gin-gonic/gin"
-	"github.com/globaljoules/energy-usage-simulator/pkg/config"
-	"github.com/globaljoules/energy-usage-simulator/pkg/models"
-	"github.com/globaljoules/energy-usage-simulator/pkg/utils"
-	"github.com/globaljoules/energy-usage-simulator/pkg/utils/token"
-
+	"github.com/healthfusiongenai/health-risk-api/pkg/config"
+	"github.com/healthfusiongenai/health-risk-api/pkg/models"
+	"github.com/healthfusiongenai/health-risk-api/pkg/utils"
+	"github.com/healthfusiongenai/health-risk-api/pkg/utils/token"
 )
 
 type AuthController struct {

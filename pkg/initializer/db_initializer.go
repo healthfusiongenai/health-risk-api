@@ -10,8 +10,8 @@ import (
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 
-	"github.com/globaljoules/energy-usage-simulator/pkg/config"
-	"github.com/globaljoules/energy-usage-simulator/pkg/models"
+	"github.com/healthfusiongenai/health-risk-api/pkg/config"
+	"github.com/healthfusiongenai/health-risk-api/pkg/models"
 )
 
 type Initializer struct {

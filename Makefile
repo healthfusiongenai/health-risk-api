@@ -1,5 +1,5 @@
 VERSION ?= $(shell cat VERSION)
-APP_NAME ?= energy-usage-simulator
+APP_NAME ?= health-risk-api
 
 ifeq ($(shell command -v podman 2> /dev/null),)
     CMD=docker
@@ -11,7 +11,7 @@ CMD=docker
 
 # Build the docker image
 build:
-#	go build -o /energy-usage-simulator .
+#	go build -o /health-risk-api .
 	$(CMD) build \
 	 -t $(APP_NAME):$(VERSION) \
 	 --build-arg APP_NAME=$(APP_NAME) \

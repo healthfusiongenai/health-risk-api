@@ -9,10 +9,10 @@ import (
 
 	"github.com/gin-gonic/gin"
 
-	"github.com/globaljoules/energy-usage-simulator/pkg/config"
-	"github.com/globaljoules/energy-usage-simulator/pkg/initializer"
-	"github.com/globaljoules/energy-usage-simulator/pkg/models"
-	"github.com/globaljoules/energy-usage-simulator/pkg/utils/token"
+	"github.com/healthfusiongenai/health-risk-api/pkg/config"
+	"github.com/healthfusiongenai/health-risk-api/pkg/initializer"
+	"github.com/healthfusiongenai/health-risk-api/pkg/models"
+	"github.com/healthfusiongenai/health-risk-api/pkg/utils/token"
 )
 
 // TODO: do we want to manage DB better? initializer is used to initialize

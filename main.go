@@ -1,14 +1,15 @@
 package main
 
 import (
-	"github.com/gin-contrib/cors"
-	"github.com/gin-gonic/gin"
 	"log"
 	"net/http"
 
-	"github.com/globaljoules/energy-usage-simulator/pkg/config"
-	"github.com/globaljoules/energy-usage-simulator/pkg/initializer"
-	"github.com/globaljoules/energy-usage-simulator/pkg/services"
+	"github.com/gin-contrib/cors"
+	"github.com/gin-gonic/gin"
+
+	"github.com/healthfusiongenai/health-risk-api/pkg/config"
+	"github.com/healthfusiongenai/health-risk-api/pkg/initializer"
+	"github.com/healthfusiongenai/health-risk-api/pkg/services"
 )
 
 var server *gin.Engine

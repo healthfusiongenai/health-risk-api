@@ -16,14 +16,14 @@ RUN go mod download
 COPY . .
 
 # Build the Go executable
-RUN go build -o /energy-usage-simulator .
+RUN go build -o /health-risk-api .
 
 # Copy the source code. Note the slash at the end, as explained in
 # https://docs.docker.com/reference/dockerfile/#copy
-COPY energy-usage-simulator ./energy-usage-simulator
+COPY health-risk-api ./health-risk-api
 COPY hello-world ./hello-world
 COPY main ./main
-COPY gj-sim.env ./
+COPY hlth-api.env ./
 
 # TODO debug issues...
 # https://www.google.com/search?q=rancher+desktop+mac+intel+2019&oq=rancher+desktop+mac+intel+2019&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIHCAEQIRigATIHCAIQIRigATIHCAMQIRigATIHCAQQIRigATIHCAUQIRigAdIBCTE2MjIzajBqN6gCALACAA&sourceid=chrome&ie=UTF-8
@@ -38,6 +38,6 @@ COPY gj-sim.env ./
 EXPOSE 8000
 
 # Run
-#ENTRYPOINT ["./energy-usage-simulator"]
+#ENTRYPOINT ["./health-risk-api"]
 # for debugging
 CMD [ "tail", "-f", "/dev/null" ]
